@@ -84,7 +84,7 @@ client.connect(err => {
                 res.send(documents);
             })
     })
-
+// all right
     // get dynamic product here ---------------------
     app.get('/product/:key', (req, res) => {
         productsCollection.find({ key: req.params.key })
