@@ -106,7 +106,6 @@ client.connect(err => {
     })
 
     // shipment user placed data -------------------------
-
     app.post('/addOrder', (req, res) => {
         const order = req.body;
          ordersCollection.insertOne(order)
@@ -122,4 +121,4 @@ app.get('/', (req, res) => {
     res.send('hello wold')
 })
 
-app.listen(port)
+app.listen(process.env.PORT || port,() => console.log('hello wold'))
