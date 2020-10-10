@@ -76,15 +76,17 @@ client.connect(err => {
             })
     })
 
-    //  get products here -------------------
+    //  get all products here -------------------
     app.get('/products', (req, res) => {
-        productsCollection.find({})
+        const search = req.query.search;
+        productsCollection.find({name: {$regex:search}})
             // .limit(60)
             .toArray((err, documents) => {
                 res.send(documents);
             })
     })
-// all right
+
+
     // get dynamic product here ---------------------
     app.get('/product/:key', (req, res) => {
         productsCollection.find({ key: req.params.key })
@@ -118,7 +120,7 @@ client.connect(err => {
 });
 
 app.get('/', (req, res) => {
-    res.send('hello wold')
+    res.send('hello wold kemaonChoo')
 })
 
-app.listen(process.env.PORT || port,() => console.log('hello wold'))
+app.listen(process.env.PORT || port,() => console.log('hello wold kemon achho'))
